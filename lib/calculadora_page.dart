@@ -92,6 +92,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
                     Expanded(
                       flex: 7,
                       child: TextField(
+                        keyboardType: TextInputType.number,
                         controller: pesoControler,
                         decoration: const InputDecoration(
                           icon: Icon(Icons.balance),
@@ -128,6 +129,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
                     Expanded(
                       flex: 7,
                       child: TextField(
+                        keyboardType: TextInputType.number,
                         controller: alturaControler,
                         decoration: const InputDecoration(
                           icon: Icon(Icons.height),
