@@ -1,21 +1,13 @@
 <<<<<<< HEAD
 # imc
 
-A new Flutter project.
+Calculadora imc em flutter.
+# Protótipo do app
+![image](https://github.com/CodePoliX/CalculadoraDeImc/assets/131065263/86deb6b5-e3da-42fe-b715-5ef086b5f676)
+![image](https://github.com/CodePoliX/CalculadoraDeImc/assets/131065263/9eab4b85-61f8-4d6a-839b-8c55c495bb94)
+![image](https://github.com/CodePoliX/CalculadoraDeImc/assets/131065263/278307a1-162c-422e-b48b-750174236f55)
 
-## Getting Started
+## Créditos
 
-This project is a starting point for a Flutter application.
+<a href="https://br.freepik.com/icone/balanca_7373030#fromView=search&term=balança&page=1&position=85&track=ais&track=ais">Ícone de Muhammad_Usman</a>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# CalculadoraDeImc
-minha calculadora de imc feita com flutter.
->>>>>>> 5875c9fa4cb2dbb7129157a154edbf502b1778fd
