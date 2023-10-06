@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # imc
 
 Calculadora imc em flutter.
