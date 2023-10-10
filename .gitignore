@@ -1,5 +1,7 @@
 # Miscellaneous
 *.class
+*.ios
+*.android
 *.log
 *.pyc
 *.swp
@@ -42,6 +44,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-/imc/android/
-/imc/ios/
-/imc/macos/
