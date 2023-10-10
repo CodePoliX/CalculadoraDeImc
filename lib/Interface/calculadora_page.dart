@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:imc/Interface/historico_imc.dart';
-import 'package:imc/calculadora.dart';
+import 'package:imc/boxes.dart';
+import 'package:imc/class/calculadora.dart';
+import 'package:uuid/uuid.dart';
+import 'package:imc/models/imc_model.dart';
 
 class CalculadoraPage extends StatefulWidget {
   const CalculadoraPage({super.key});
@@ -12,8 +15,8 @@ class CalculadoraPage extends StatefulWidget {
 class _CalculadoraPageState extends State<CalculadoraPage> {
   var alturaControler = TextEditingController();
   var pesoControler = TextEditingController();
-  List<Calculadora> historico = [];
   late Calculadora atual;
+  var uuid = Uuid();
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +95,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
                     Expanded(
                       flex: 7,
                       child: TextField(
+                        keyboardType: TextInputType.number,
                         controller: pesoControler,
                         decoration: const InputDecoration(
                           icon: Icon(Icons.balance),
@@ -128,6 +132,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
                     Expanded(
                       flex: 7,
                       child: TextField(
+                        keyboardType: TextInputType.number,
                         controller: alturaControler,
                         decoration: const InputDecoration(
                           icon: Icon(Icons.height),
@@ -155,16 +160,24 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
                       child: TextButton(
                         onPressed: () {
                           try {
-                            double altura = double.parse(alturaControler.text);
-                            double peso = double.parse(pesoControler.text);
                             setState(() {
-                              atual = Calculadora(peso, altura);
-                              historico.add(atual);
+                              atual = Calculadora(
+                                  double.parse(pesoControler.text),
+                                  double.parse(alturaControler.text));
+                              boxImc.put(
+                                  'key_${uuid.v4()}',
+                                  ImcModel(
+                                      altura: atual.getAltura(),
+                                      classe: atual.getClasse(),
+                                      imc: atual.getImc(),
+                                      peso: atual.getPeso(),
+                                      data: DateTime.now().toString()));
+
                               showDialog(
                                   context: context,
                                   builder: (_) => AlertDialog(
-                                      title: Text("${atual.getMensagem()}!"),
-                                      content: Text(atual.getConteudo()),
+                                      title: Text("${atual.getClasse()}!"),
+                                      content: Text(atual.getMensagem()),
                                       actions: [
                                         TextButton(
                                             onPressed: () {
@@ -173,8 +186,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          HistoricoImc(
-                                                              historico)));
+                                                          const HistoricoImc()));
                                             },
                                             child: const Text(
                                               "Ver últimos resultados",
